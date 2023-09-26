@@ -41,6 +41,7 @@ $hotels = [
 ];
 
 $park = isset($_GET['park']) ? $_GET['park'] : 'off';
+$rank = $_GET['voto'];
 
 ?>
 
@@ -107,8 +108,8 @@ $park = isset($_GET['park']) ? $_GET['park'] : 'off';
                 <?php foreach ($hotels as $key => $hotel) { ?>
 
                 <!-- con parcheggio -->
-                <?php if ($park == 'on'): ?>
-                <?php if ($hotel['parking'] > 0): ?>
+                <?php if ($park == 'on' ): ?>
+                <?php if ($hotel['parking'] > 0 && $hotel['vote'] >= $rank ): ?>
                 <tr>
                     <th scope="row">
                         <?php echo $key + 1; ?>
@@ -139,6 +140,7 @@ $park = isset($_GET['park']) ? $_GET['park'] : 'off';
                 <?php endif ?>
                 <?php else: ?>
 
+                <?php if ($hotel['vote'] >= $rank ): ?>
                 <tr>
                     <th scope="row">
                         <?php echo $key + 1; ?>
@@ -164,6 +166,7 @@ $park = isset($_GET['park']) ? $_GET['park'] : 'off';
                     </td>
 
                 </tr>
+                <?php endif ?>
                 <?php endif ?>
 
 
