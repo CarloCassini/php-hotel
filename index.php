@@ -65,16 +65,32 @@ $park = isset($_GET['park']) ? $_GET['park'] : 'off';
 
     <div class="container my-5">
 
-        <form action="" method="GET">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="park" id="check-Parcheggio" <?php if ($park == 'on') { ?> checked <?php } ?>>
-                <label class="form-check-label" for="check-Parcheggio">
-                    parcheggio
-                </label>
+        <form action="" method="GET" class="w-50 mx-auto d-flex">
+            <button class="btn btn-dark me-3">filtra</button>
+
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="park" id="check-Parcheggio"
+                        <?php if ($park == 'on') { ?> checked <?php } ?>>
+                    <label class="form-check-label" for="check-Parcheggio">
+                        parcheggio
+                    </label>
+                </div>
+                <select class="form-select" aria-label="voto select " name="voto">
+                    <option selected value="1">numero di stelle</option>
+                    <option value="1">*</option>
+                    <option value="2">**</option>
+                    <option value="3">***</option>
+                    <option value="4">****</option>
+                    <option value="5">*****</option>
+                </select>
             </div>
-            <button class="btn btn-dark">filtra</button>
+
+
+
 
         </form>
+
 
         <table class="table">
             <thead>
@@ -90,65 +106,65 @@ $park = isset($_GET['park']) ? $_GET['park'] : 'off';
             <tbody>
                 <?php foreach ($hotels as $key => $hotel) { ?>
 
-                    <!-- con parcheggio -->
-                    <?php if ($park == 'on'): ?>
-                        <?php if ($hotel['parking'] > 0): ?>
-                            <tr>
-                                <th scope="row">
-                                    <?php echo $key + 1; ?>
-                                </th>
-                                <td>
-                                    <?php echo $hotel['name']; ?>
-                                </td>
-                                <td>
+                <!-- con parcheggio -->
+                <?php if ($park == 'on'): ?>
+                <?php if ($hotel['parking'] > 0): ?>
+                <tr>
+                    <th scope="row">
+                        <?php echo $key + 1; ?>
+                    </th>
+                    <td>
+                        <?php echo $hotel['name']; ?>
+                    </td>
+                    <td>
 
-                                    <?php echo $hotel['description']; ?>
-                                </td>
-                                <td>
+                        <?php echo $hotel['description']; ?>
+                    </td>
+                    <td>
 
-                                    <?php echo $hotel['parking']; ?>
-                                </td>
-                                <td>
+                        <?php echo $hotel['parking']; ?>
+                    </td>
+                    <td>
 
-                                    <?php echo $hotel['vote']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $hotel['distance_to_center']; ?>
+                        <?php echo $hotel['vote']; ?>
+                    </td>
+                    <td>
+                        <?php echo $hotel['distance_to_center']; ?>
 
-                                </td>
+                    </td>
 
-                            </tr>
+                </tr>
 
 
-                        <?php endif ?>
-                    <?php else: ?>
+                <?php endif ?>
+                <?php else: ?>
 
-                        <tr>
-                            <th scope="row">
-                                <?php echo $key + 1; ?>
-                            </th>
-                            <td>
-                                <?php echo $hotel['name']; ?>
-                            </td>
-                            <td>
+                <tr>
+                    <th scope="row">
+                        <?php echo $key + 1; ?>
+                    </th>
+                    <td>
+                        <?php echo $hotel['name']; ?>
+                    </td>
+                    <td>
 
-                                <?php echo $hotel['description']; ?>
-                            </td>
-                            <td>
+                        <?php echo $hotel['description']; ?>
+                    </td>
+                    <td>
 
-                                <?php echo $hotel['parking']; ?>
-                            </td>
-                            <td>
+                        <?php echo $hotel['parking']; ?>
+                    </td>
+                    <td>
 
-                                <?php echo $hotel['vote']; ?>
-                            </td>
-                            <td>
-                                <?php echo $hotel['distance_to_center']; ?>
+                        <?php echo $hotel['vote']; ?>
+                    </td>
+                    <td>
+                        <?php echo $hotel['distance_to_center']; ?>
 
-                            </td>
+                    </td>
 
-                        </tr>
-                    <?php endif ?>
+                </tr>
+                <?php endif ?>
 
 
                 <?php } ?>
