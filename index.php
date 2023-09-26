@@ -41,7 +41,8 @@ $hotels = [
 ];
 
 $park = isset($_GET['park']) ? $_GET['park'] : 'off';
-$rank = $_GET['voto'];
+$rank = isset($_GET['voto']) ? $_GET['voto'] : 0;
+
 
 ?>
 
@@ -78,12 +79,12 @@ $rank = $_GET['voto'];
                     </label>
                 </div>
                 <select class="form-select" aria-label="voto select " name="voto">
-                    <option selected value="1">numero di stelle</option>
-                    <option value="1">*</option>
-                    <option value="2">**</option>
-                    <option value="3">***</option>
-                    <option value="4">****</option>
-                    <option value="5">*****</option>
+                    <option <?php if($rank == 0):?> selected<?php endif?>value="1">numero di stelle</option>
+                    <option <?php if($rank == 1):?> selected<?php endif?> value="1">*</option>
+                    <option <?php if($rank == 2):?> selected<?php endif?> value="2">**</option>
+                    <option <?php if($rank == 3):?> selected<?php endif?> value="3">***</option>
+                    <option <?php if($rank == 4):?> selected<?php endif?> value="4">****</option>
+                    <option <?php if($rank == 5):?> selected<?php endif?> value="5">*****</option>
                 </select>
             </div>
 
