@@ -108,7 +108,9 @@ $rank = isset($_GET['voto']) ? $_GET['voto'] : 0;
             <tbody>
                 <?php foreach ($hotels as $key => $hotel) { ?>
 
+                <!-- todo -- non ripetere codice -->
                 <!-- con parcheggio -->
+
                 <?php if ($park == 'on' ): ?>
                 <?php if ($hotel['parking'] > 0 && $hotel['vote'] >= $rank ): ?>
                 <tr>
