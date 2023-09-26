@@ -61,6 +61,10 @@
 
 <body>
 
+    <?php foreach ($hotels as $hotel) {
+    echo $hotel
+} ?>
+
 </body>
 
 </html>
